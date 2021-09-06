@@ -1,5 +1,6 @@
-const url="https://assets.codepen.io/1940996/gands_3.csv"
-  
+//const url="https://assets.codepen.io/1940996/gands_3.csv"
+const url = "gands_3.csv"
+
 d3.csv(url, function(data) {
 	
     const w = 1000;
