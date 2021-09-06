@@ -7,6 +7,12 @@ d3.csv(url, function(data) {
     const h = 500;
     const xpad = 75;
     const ypad = 25;
+	
+    const teal = "#66bbbb";
+    const lightteal = "#99eeee";
+    const pink = "#ffaaaa";
+    const lightpink = "#ffdddd";
+    const lightyellow = "#ffffaa";
     
     // Create scales
     const xScale = d3.scaleLinear()
@@ -82,7 +88,7 @@ d3.csv(url, function(data) {
             .duration(200)
             .style("opacity", 1)
             .style("font-family", "arial")
-            .style("background-color", "#ffffaa")
+            .style("background-color", lightyellow)
        })
        .on("mouseout", function() {
           d3.select("#tooltip")
@@ -169,10 +175,10 @@ d3.csv(url, function(data) {
       }
     }; 
   
-    legend(100, 70, "bar", 175, "#66bbbb", "Goods Exported");
-    legend(100, 100, "bar", 175, "#99eeee", "Services Exported");
-    legend(100, 130, "bar", 175, "#ffaaaa", "Goods Imported");
-    legend(100, 160, "bar", 175, "#ffdddd", "Services Imported");
+    legend(100, 70, "bar", 175, teal, "Goods Exported");
+    legend(100, 100, "bar", 175, lightteal, "Services Exported");
+    legend(100, 130, "bar", 175, pink, "Goods Imported");
+    legend(100, 160, "bar", 175, lightpink, "Services Imported");
   
     legend(100, 325, "line", 155, "green", "Total Balance");
     legend(100, 355, "line", 155, "blue", "Goods Balance");
