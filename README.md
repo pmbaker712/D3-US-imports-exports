@@ -4,3 +4,5 @@ This is a combination chart written in D3.js that visualizes US trade of goods a
 Here is the source data from data.world: https://data.world/uscensusbureau/us-international-trade-goods  
   
 The chart is interactive. Mouseover the bars to see a tooltip with the associated values.
+
+Link to live page: https://pmbaker712.github.io/us-trade-balance-d3/
