@@ -15,23 +15,23 @@ p {
   margin: auto;
 }
 
-.exBar {
-  fill: #99eeee;
+.Ex {
+ fill: #99eeee;
 }  
 
-.imBar {
+.Im {
   fill: #ffdddd;
 }  
 
-.exGoodsBar {
+.ExGoods {
   fill: #66bbbb;
 }  
 
-.imGoodsBar {
+.ImGoods {
   fill: #ffaaaa;
 }  
 
-.exBar:hover, .imBar:hover, .exGoodsBar:hover, .imGoodsBar:hover {
+.Ex:hover, .Im:hover, .ExGoods:hover, .ImGoods:hover {
   fill: #ffffaa;
 }
 
@@ -40,4 +40,6 @@ p {
   opacity: 0;
   padding: 10px;
   border-radius: 15px;
+  font-family: arial;
+  background-color: #ffffaa";
 }
