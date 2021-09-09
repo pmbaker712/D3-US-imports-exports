@@ -1,19 +1,19 @@
-//const url="https://assets.codepen.io/1940996/gands_3.csv"
-const url = "gands_3.csv"
+const url = "gands.csv";
+
+const w = 1000;
+const h = 500;
+const xpad = 75;
+const ypad = 25;
+const barwidth = 14;
+
+const teal = "#66bbbb";
+const lightteal = "#99eeee";
+const pink = "#ffaaaa";
+const lightpink = "#ffdddd";
+const lightyellow = "#ffffaa";
 
 d3.csv(url, function(data) {
-	
-    const w = 1000;
-    const h = 500;
-    const xpad = 75;
-    const ypad = 25;
-	
-    const teal = "#66bbbb";
-    const lightteal = "#99eeee";
-    const pink = "#ffaaaa";
-    const lightpink = "#ffdddd";
-    const lightyellow = "#ffffaa";
-    
+	    
     // Create scales
     const xScale = d3.scaleLinear()
       .domain([1960, 2015])
@@ -64,13 +64,20 @@ d3.csv(url, function(data) {
        .enter()
        .append("rect")
        .attr("x", (d) => xScale(d.Year))
+	
+	/* Start of bar on y axis
+	   half of canvas height minus bar height for positive,
+	   half of canvas height for negative */ 
        .attr("y", (d) => h/2 - Math.max((d.Amount/1000)/(6000/(h - 2*ypad)), 0))
-       .attr("width", 14)
+	
+       .attr("width", barwidth)
+	
+	/* Height of bar is absolute value of trade amount 
+	   scaled to canvas size */
        .attr("height", (d) => Math.abs((d.Amount/1000))/(6000/(h - 2*ypad)))
-       .attr("class", function(d) {if (d.Type == "Ex") {return "exBar"} 
-                                   else if (d.Type == "Im") {return "imBar"}
-                                   else if (d.Type == "ExGoods") {return "exGoodsBar"}
-                                   else {return "imGoodsBar"}})
+	
+	// Assign type for CSS
+       .attr("class", (d) => d.Type)
        
        // Set tooltip behavior
        .on("mouseover", function(d) {
@@ -87,8 +94,6 @@ d3.csv(url, function(data) {
             .transition()
             .duration(200)
             .style("opacity", 1)
-            .style("font-family", "arial")
-            .style("background-color", lightyellow)
        })
        .on("mouseout", function() {
           d3.select("#tooltip")
@@ -103,7 +108,7 @@ d3.csv(url, function(data) {
     
     //Filter data used in lines
     let filteredData = data.filter(function(d) { 
-        if( d.Type == "Ex") {return d;} 
+        return (d.Type == "Ex"); 
     });
   
    // Total balance line
@@ -158,7 +163,7 @@ d3.csv(url, function(data) {
         .attr("y", y + 15)
         .text(text)
         .attr("font-family", "arial");
-      } else if (type = "line") {
+      } else if (type == "line") {
       
         svg.append("rect")
         .attr("width", 15)
