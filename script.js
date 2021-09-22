@@ -11,6 +11,9 @@ const lightteal = "#99eeee";
 const pink = "#ffaaaa";
 const lightpink = "#ffdddd";
 const lightyellow = "#ffffaa";
+const red = "#ff2222";
+const blue = "#2222ff";
+const green = "#00ff00";
 
 d3.csv(url, function(data) {
 
@@ -115,7 +118,7 @@ d3.csv(url, function(data) {
     svg.append("path")
         .datum(filteredData)
         .attr("fill", "none")
-        .attr("stroke", "green")
+        .attr("stroke", green)
         .attr("stroke-width", 2.5)
         .attr("d", d3.line()
             .x((d) => xScale(d.Year))
@@ -127,7 +130,7 @@ d3.csv(url, function(data) {
     svg.append("path")
         .datum(filteredData)
         .attr("fill", "none")
-        .attr("stroke", "blue")
+        .attr("stroke", blue)
         .attr("stroke-width", 2.5)
         .attr("d", d3.line()
             .x((d) => xScale(d.Year))
@@ -139,7 +142,7 @@ d3.csv(url, function(data) {
     svg.append("path")
         .datum(filteredData)
         .attr("fill", "none")
-        .attr("stroke", "red")
+        .attr("stroke", red)
         .attr("stroke-width", 2.5)
         .attr("d", d3.line()
             .x((d) => xScale(d.Year))
@@ -185,8 +188,8 @@ d3.csv(url, function(data) {
     legend(100, 130, "bar", 175, pink, "Goods Imported");
     legend(100, 160, "bar", 175, lightpink, "Services Imported");
 
-    legend(100, 325, "line", 155, "green", "Total Balance");
-    legend(100, 355, "line", 155, "blue", "Goods Balance");
-    legend(100, 385, "line", 155, "red", "Services Balance");
+    legend(100, 325, "line", 155, green, "Total Balance");
+    legend(100, 355, "line", 155, blue, "Goods Balance");
+    legend(100, 385, "line", 155, red, "Services Balance");
 
 });
